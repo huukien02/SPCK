@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f8f9fa;
+      }
+      .header-banner {
+        background: linear-gradient(to right, #ff9a9e, #fad0c4);
+        color: #fff;
+        text-align: center;
+        padding: 3rem 1rem;
+      }
+      .header-banner h1 {
+        font-size: 3rem;
+        font-weight: bold;
+      }
+      .header-banner p {
+        font-size: 1.25rem;
+      }
+      .section-title {
+        color: #ff6f61;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+      }
+      .fruit-card {
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+      .fruit-card img {
+        height: 200px;
+        object-fit: cover;
+      }
+      .fruit-card-body {
+        background-color: #fef7e0;
+        text-align: center;
+      }
+      .fruit-card-body h5 {
+        color: #ff6f61;
+        font-weight: bold;
+      }
+      .btn-custom {
+        background: linear-gradient(to right, #ff6f61, #ff9a9e);
+        color: white;
+        border: none;
+      }
+      .btn-custom:hover {
+        background: #ff6f61;
+      }
+      footer {
+        background: #343a40;
+        color: #fff;
+        text-align: center;
+        padding: 1rem;
+      }
+      .testimonial-card {
+        background: #fff5f5;
+        border: none;
+        border-radius: 10px;
+        padding: 1.5rem;
+        text-align: center;
+      }
+      .testimonial-card img {
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        margin-bottom: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header Banner -->
+    <header
+      style="background: linear-gradient(to right, #ff9a9e, #fad0c4)"
+      class="text-white py-3"
+    >
+      <div class="container w-full">
+        <div
+          class="d-flex justify-content-between align-items-center p-3 shadow-sm"
+        >
+          <h1 class="h3 text-white">Shop</h1>
+          <nav>
+            <ul class="list-unstyled d-flex mb-0">
+              <li class="ms-3">
+                <a
+                  href="./index.html"
+                  class="text-white text-decoration-none hover-effect"
+                  >Trang chủ</a
+                >
+              </li>
+              <li class="ms-3">
+                <a
+                  href="./about.html"
+                  class="text-white text-decoration-none hover-effect"
+                  >Giới thiệu</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <header class="header-banner">
+      <h1>Chào mừng đến với Fruit Paradise</h1>
+      <p>
+        Khám phá những loại trái cây tươi ngon và đầy màu sắc nhất từ ​​khắp nơi
+        trên thế giới!
+      </p>
+      <a href="#products" class="btn btn-custom btn-lg">Khám phá ngay</a>
+    </header>
+
+    <!-- Phần Giới Thiệu -->
+    <section id="about" class="py-5">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title">Về Chúng Tôi</h2>
+          <p class="text-muted">
+            Tại Fruit Paradise, chúng tôi tin vào sức mạnh của sự tươi ngon tự
+            nhiên. Sứ mệnh của chúng tôi là mang những loại trái cây tươi ngon
+            nhất và chất lượng nhất đến tận cửa nhà bạn.
+          </p>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <img
+              src="https://via.placeholder.com/600x400?text=Fresh+Fruits"
+              alt="Trái cây tươi"
+              class="img-fluid rounded"
+            />
+          </div>
+          <div class="col-md-6">
+            <h3 class="fw-bold text-success">Tại Sao Chọn Chúng Tôi?</h3>
+            <ul class="list-unstyled">
+              <li>
+                <strong>Đảm Bảo Tươi Ngon:</strong> Tất cả trái cây đều được hái
+                bằng tay mỗi ngày.
+              </li>
+              <li>
+                <strong>Đa Dạng Loại Quả:</strong> Từ nông sản địa phương đến
+                những loại quả nhập khẩu.
+              </li>
+              <li>
+                <strong>Lợi Ích Sức Khỏe:</strong> Dồi dào vitamin và khoáng
+                chất.
+              </li>
+              <li>
+                <strong>Giao Hàng Nhanh Chóng:</strong> Nhận trái cây tươi ngay
+                tại nhà bạn.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Phần Sản Phẩm -->
+    <section id="products" class="container py-5">
+      <div class="text-center mb-5">
+        <h2 class="section-title">Trái Cây Tốt Nhất</h2>
+        <p class="text-muted">
+          Trái cây được chọn lọc kỹ càng, chất lượng cao dành riêng cho bạn!
+        </p>
+      </div>
+      <div class="row g-4">
+        <!-- Thẻ Trái Cây -->
+        <div class="col-md-4">
+          <div class="card fruit-card">
+            <img
+              src="https://via.placeholder.com/300x200?text=Apple"
+              class="card-img-top"
+              alt="Táo"
+            />
+            <div class="card-body fruit-card-body">
+              <h5 class="card-title">Táo Tươi</h5>
+              <p class="card-text">Giòn, mọng nước và thơm ngon.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card fruit-card">
+            <img
+              src="https://via.placeholder.com/300x200?text=Banana"
+              class="card-img-top"
+              alt="Chuối"
+            />
+            <div class="card-body fruit-card-body">
+              <h5 class="card-title">Chuối Hữu Cơ</h5>
+              <p class="card-text">Giàu dinh dưỡng và tràn đầy năng lượng.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card fruit-card">
+            <img
+              src="https://via.placeholder.com/300x200?text=Mango"
+              class="card-img-top"
+              alt="Xoài"
+            />
+            <div class="card-body fruit-card-body">
+              <h5 class="card-title">Xoài Ngọt</h5>
+              <p class="card-text">Hương vị nhiệt đới trong từng miếng cắn.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Phần Đánh Giá -->
+    <section id="testimonials" class="py-5 bg-light">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title">Khách Hàng Nói Gì</h2>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card testimonial-card">
+              <img
+                src="https://via.placeholder.com/80?text=User"
+                alt="Khách Hàng"
+              />
+              <p>
+                "Trái cây luôn tươi ngon và thơm ngon. Các con tôi rất thích!"
+              </p>
+              <h5 class="fw-bold">User 1</h5>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card testimonial-card">
+              <img
+                src="https://via.placeholder.com/80?text=User"
+                alt="Khách Hàng"
+              />
+              <p>
+                "Dịch vụ tuyệt vời và nhiều loại trái cây đa dạng. Rất đáng
+                thử!"
+              </p>
+              <h5 class="fw-bold">User 2</h5>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card testimonial-card">
+              <img
+                src="https://via.placeholder.com/80?text=User"
+                alt="Khách Hàng"
+              />
+              <p>
+                "Giao hàng nhanh chóng và chất lượng trái cây đỉnh cao. Tôi sẽ
+                đặt hàng lần nữa!"
+              </p>
+              <h5 class="fw-bold">User 3</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2024 Fruit Paradise. Mọi quyền được bảo lưu.</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+  </body>
+</html>

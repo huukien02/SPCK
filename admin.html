@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Page</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <!-- Quản lý Người Dùng -->
+      <div class="card shadow-sm mb-5">
+        <div class="card-header bg-primary text-white">
+          <h2 class="mb-0">Quản lý Người Dùng</h2>
+        </div>
+        <div class="card-body">
+          <table class="table table-bordered table-hover">
+            <thead class="table-light">
+              <tr>
+                <th>Fullname</th>
+                <th>Username</th>
+                <th>Avatar</th>
+                <th>Role</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="userTable">
+              <!-- Nội dung sẽ được thêm bằng JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Quản lý Sản Phẩm -->
+      <div class="card shadow-sm">
+        <div class="card-header bg-success text-white">
+          <h2 class="mb-0">Quản lý Sản Phẩm</h2>
+        </div>
+        <div class="card-body">
+          <button
+            class="btn btn-primary mb-3"
+            data-bs-toggle="modal"
+            data-bs-target="#addProductModal"
+          >
+            Thêm Sản Phẩm
+          </button>
+          <table class="table table-bordered table-hover">
+            <thead class="table-light">
+              <tr>
+                <th>Name</th>
+                <th>Detail</th>
+                <th>Price</th>
+                <th>Image</th>
+                <th>Type</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="productTable">
+              <!-- Nội dung sẽ được thêm bằng JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Thêm Sản Phẩm -->
+    <div
+      class="modal fade"
+      id="addProductModal"
+      tabindex="-1"
+      aria-labelledby="addProductModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addProductModalLabel">Thêm Sản Phẩm</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="addProductForm">
+              <div class="mb-3">
+                <label for="productName" class="form-label">Tên Sản Phẩm</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="productName"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="productDetail" class="form-label">Chi Tiết</label>
+                <textarea
+                  class="form-control"
+                  id="productDetail"
+                  rows="3"
+                  required
+                ></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="productPrice" class="form-label">Giá</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="productPrice"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="productImage" class="form-label"
+                  >Ảnh Sản Phẩm</label
+                >
+                <input
+                  type="file"
+                  class="form-control"
+                  id="productImage"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="productType" class="form-label">Loại</label>
+                <select class="form-select" id="productType" required>
+                  <option value="Loai A">Loại A</option>
+                  <option value="Loai B">Loại B</option>
+                  <option value="Loai C">Loại C</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary">Lưu</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal chỉnh sửa -->
+    <div
+      class="modal fade"
+      id="editProductModal"
+      tabindex="-1"
+      aria-labelledby="editProductModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editProductModalLabel">
+              Chỉnh sửa sản phẩm
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="editProductForm">
+              <div class="mb-3">
+                <label for="editProductName" class="form-label"
+                  >Tên Sản Phẩm</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="editProductName"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="editProductDetail" class="form-label"
+                  >Chi Tiết</label
+                >
+                <textarea
+                  class="form-control"
+                  id="editProductDetail"
+                  rows="3"
+                  required
+                ></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="editProductPrice" class="form-label">Giá</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="editProductPrice"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="editProductType" class="form-label">Loại</label>
+                <select class="form-select" id="editProductType" required>
+                  <option value="Loai A">Loại A</option>
+                  <option value="Loai B">Loại B</option>
+                  <option value="Loai C">Loại C</option>
+                </select>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Đóng
+            </button>
+            <button type="button" class="btn btn-primary" id="saveEditProduct">
+              Lưu thay đổi
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+      import {
+        getDatabase,
+        ref,
+        set,
+        push,
+        onValue,
+        update,
+        remove,
+      } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+      // Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyAs1LEj2WXO-6MvS7v2uWg5nPzVsqjbVf0",
+        authDomain: "crud-3fd86.firebaseapp.com",
+        databaseURL: "https://crud-3fd86-default-rtdb.firebaseio.com",
+        projectId: "crud-3fd86",
+        storageBucket: "crud-3fd86.appspot.com",
+        messagingSenderId: "663063195093",
+        appId: "1:663063195093:web:5d892cb09a9d2016c7e15c",
+        measurementId: "G-579FGCK6TP",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const database = getDatabase(app);
+
+      // Cloudinary setup
+      const CLOUDINARY_URL =
+        "https://api.cloudinary.com/v1_1/dhmr88vva/image/upload";
+      const CLOUDINARY_UPLOAD_PRESET = "your_upload_preset";
+
+      //     <========================== Product ==========================>
+
+      const renderProducts = () => {
+        const dataTable = document.getElementById("productTable");
+        const productRef = ref(database, "SPCK-PRODUCT");
+        onValue(productRef, (snapshot) => {
+          dataTable.innerHTML = "";
+          snapshot.forEach((childSnapshot) => {
+            const id = childSnapshot.key;
+            const data = childSnapshot.val();
+
+            const row = `
+          <tr>
+          
+            <td>${data.name}</td>
+            <td>${data.detail}</td>
+            <td>${data.price}</td>
+            <td>
+                  <img src="${data.image}"
+                   style="width: 50px; height: 50px; object-fit: cover;">
+              </td>
+            <td>${data.type}</td>
+            <td>
+               <button class="btn btn-warning btn-sm" onclick="editProduct('${id}')">Edit</button>
+                <button class="btn btn-danger btn-sm" onclick="deleteProduct('${id}')">Delete</button>
+            </td>
+          </tr>`;
+            dataTable.innerHTML += row;
+          });
+        });
+      };
+      renderProducts();
+      // Create Product
+      const uploadImageToCloudinary = async (file) => {
+        const formData = new FormData();
+        formData.append("file", file);
+        formData.append("upload_preset", "upload_images");
+
+        try {
+          const response = await fetch(
+            "https://api.cloudinary.com/v1_1/dhmr88vva/image/upload",
+            {
+              method: "POST",
+              body: formData,
+            }
+          );
+          const result = await response.json();
+          return result.secure_url; // Trả về link ảnh
+        } catch (error) {
+          console.error("Upload failed:", error);
+          throw new Error("Upload ảnh thất bại!");
+        }
+      };
+
+      // Hàm thêm sản phẩm vào Firebase
+      const addProduct = (product) => {
+        const productRef = ref(database, "SPCK-PRODUCT");
+        const newProductRef = push(productRef); // Tạo id duy nhất
+        set(newProductRef, product)
+          .then(() => {
+            alert("Thêm sản phẩm thành công!");
+            document.getElementById("addProductForm").reset();
+          })
+          .catch((error) => {
+            console.error("Error adding product:", error);
+            alert("Lỗi thêm sản phẩm!");
+          });
+      };
+
+      // Xử lý sự kiện submit form
+      document
+        .getElementById("addProductForm")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          const name = document.getElementById("productName").value;
+          const detail = document.getElementById("productDetail").value;
+          const price = document.getElementById("productPrice").value;
+          const type = document.getElementById("productType").value;
+          const imageInput = document.getElementById("productImage");
+          const file = imageInput.files[0];
+
+          if (!file) {
+            alert("Vui lòng chọn một tệp ảnh!");
+            return;
+          }
+
+          try {
+            // Upload ảnh lên Cloudinary
+            const uploadedImageUrl = await uploadImageToCloudinary(file);
+
+            // Tạo đối tượng sản phẩm
+            const product = {
+              name,
+              detail,
+              price,
+              image: uploadedImageUrl,
+              type,
+            };
+
+            // Lưu sản phẩm vào Firebase
+            addProduct(product);
+          } catch (error) {
+            alert(error.message);
+          }
+        });
+
+      // Xóa sản phẩm:
+      window.deleteProduct = (productId) => {
+        if (!confirm("Bạn có chắc chắn muốn xóa sản phẩm này?")) {
+          return;
+        }
+        const productRef = ref(database, `SPCK-PRODUCT/${productId}`);
+
+        remove(productRef)
+          .then(() => {
+            alert("Xóa sản phẩm thành công!");
+            renderProducts(); // Gọi lại hàm render để cập nhật danh sách sản phẩm
+          })
+          .catch((error) => {
+            console.error("Lỗi khi xóa sản phẩm:", error);
+            alert("Xóa sản phẩm thất bại!");
+          });
+      };
+
+      // Sửa sản phẩm
+      window.editProduct = (productId) => {
+        // Tham chiếu tới sản phẩm trong Firebase
+        const productRef = ref(database, `SPCK-PRODUCT/${productId}`);
+        onValue(
+          productRef,
+          (snapshot) => {
+            const data = snapshot.val();
+            // Gán dữ liệu vào các trường trong modal
+            document.getElementById("editProductName").value = data.name;
+            document.getElementById("editProductDetail").value = data.detail;
+            document.getElementById("editProductPrice").value = data.price;
+            document.getElementById("editProductType").value = data.type;
+
+            // Lưu productId vào dataset của nút lưu để sử dụng khi lưu thay đổi
+            document.getElementById("saveEditProduct").dataset.productId =
+              productId;
+
+            // Hiển thị modal
+            const editModal = new bootstrap.Modal(
+              document.getElementById("editProductModal")
+            );
+            editModal.show(); // Mở modal
+          },
+          { onlyOnce: true }
+        );
+      };
+
+      // Hàm lưu thay đổi vào Firebase
+      document
+        .getElementById("saveEditProduct")
+        .addEventListener("click", () => {
+          const productId =
+            document.getElementById("saveEditProduct").dataset.productId;
+
+          // Lấy dữ liệu từ các trường trong modal
+          const updatedProduct = {
+            name: document.getElementById("editProductName").value,
+            detail: document.getElementById("editProductDetail").value,
+            price: document.getElementById("editProductPrice").value,
+            type: document.getElementById("editProductType").value,
+          };
+
+          // Tham chiếu tới sản phẩm và cập nhật dữ liệu
+          const productRef = ref(database, `SPCK-PRODUCT/${productId}`);
+          update(productRef, updatedProduct)
+            .then(() => {
+              alert("Cập nhật sản phẩm thành công!");
+              renderProducts(); // Cập nhật danh sách sản phẩm
+              const editModal = bootstrap.Modal.getInstance(
+                document.getElementById("editProductModal")
+              );
+              editModal.hide(); // Đóng modal
+            })
+            .catch((error) => {
+              console.error("Lỗi khi cập nhật sản phẩm:", error);
+              alert("Cập nhật sản phẩm thất bại!");
+            });
+        });
+
+      //     <========================== User ==========================>
+
+      const renderUsers = () => {
+        const dataTable = document.getElementById("userTable");
+        const productRef = ref(database, "SPCK-USERS");
+        onValue(productRef, (snapshot) => {
+          dataTable.innerHTML = "";
+          snapshot.forEach((childSnapshot) => {
+            const id = childSnapshot.key;
+            const data = childSnapshot.val();
+
+            const row = `
+          <tr>
+            <td>${data.fullname}</td>
+            <td>${data.username}</td>
+            <td>
+                  <img src="${data.avatar}"
+                   style="width: 50px; height: 50px; object-fit: cover;">
+              </td>
+            <td>${data.role}</td>
+            <td>
+                <button class="btn btn-danger btn-sm" onclick="deleteUser('${id}')">Delete</button>
+            </td>
+          </tr>`;
+            dataTable.innerHTML += row;
+          });
+        });
+      };
+      renderUsers();
+
+      // Xóa User
+      window.deleteUser = (userId) => {
+        if (!confirm("Bạn có chắc chắn muốn xóa người dùng này?")) {
+          return;
+        }
+        const userRef = ref(database, `SPCK-USERS/${userId}`);
+
+        remove(userRef)
+          .then(() => {
+            alert("Xóa User thành công!");
+            renderUsers(); // Gọi lại hàm render để cập nhật danh sách sản phẩm
+          })
+          .catch((error) => {
+            alert("Xóa User thất bại!");
+          });
+      };
+    </script>
+  </body>
+</html>
